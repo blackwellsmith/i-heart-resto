@@ -1,0 +1,13 @@
+<h1>Tell us about your favorite resto!!</h1>
+<h2>Please keep it short and sweet!</h2>
+
+<%= form_for(@review) do |r| %>
+
+    <%= r.label :restaurant_name %>
+    <%= r.text_field :restaurant_name %>
+
+    <%= r.label :restaurant_review %>
+    <%= r.text_area :restaurant_review %>
+
+    <%= r.submit %>
+<% end %>

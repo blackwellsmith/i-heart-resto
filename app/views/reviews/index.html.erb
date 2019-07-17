@@ -1,0 +1,10 @@
+<h1>You hungry?</h1>
+
+<% @reviews.each do |r| %>
+    <%= r.restaurant_name %> | <%= link_to "Read", review_path(r) %>
+
+<% end %>
+
+<br>
+<br>
+
