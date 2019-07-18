@@ -1,10 +1,11 @@
 <h1>You hungry?</h1>
 
 <% @reviews.each do |r| %>
-    <%= r.restaurant_name %> | <%= link_to "Read", review_path(r) %>
+    <%= r.restaurant.name %> | <%= r.title %> | <%= link_to "Read", review_path(r)  %><br>
 
 <% end %>
 
 <br>
 <br>
 
+<%= link_to "Write review", new_review_path %>

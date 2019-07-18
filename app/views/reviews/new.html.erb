@@ -3,11 +3,35 @@
 
 <%= form_for(@review) do |r| %>
 
-    <%= r.label :restaurant_name %>
-    <%= r.text_field :restaurant_name %>
+    <%= r.label :user_id, "Select User" %>
+    <%= r.collection_select :user_id, User.all, :id, :username %>
 
-    <%= r.label :restaurant_review %>
+    <br>
+    <br>
+    
+    <%= r.label :restaurant_id, "Select Restaurant" %>
+    <%= r.collection_select :restaurant_id, Restaurant.all, :id, :name %>
+
+    <br>
+    <br>
+
+    <%= r.label :title %><br>
+    <%= r.text_field :title %>
+
+    <br>
+    <br>
+
+    <%= r.label :restaurant_review %><br>
     <%= r.text_area :restaurant_review %>
+
+    <br>
+    <br>
 
     <%= r.submit %>
 <% end %>
+
+
+ 
+ <br>
+
+ <%= link_to "Return to Reviews Page", reviews_path %>

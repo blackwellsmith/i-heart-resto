@@ -1,9 +1,22 @@
-<h1><%= @review.restaurant_name %></h1>
+
+<h1>Title: <%= @review.title %></h1>
+<h3>Restaurant name: <%= @review.restaurant.name %></h3>
 
 <br>
 
-<p><%= @review.restaurant_review %></p>
+<p>Read 👉: <%= @review.restaurant_review %></p>
 
 <br>
 
 <%= link_to "Return to Reviews Page", reviews_path %>
+
+<br>
+<br>
+
+<% if @review.user.id == session[:user_id]%>
+  <%= link_to "edit", review_path %>
+
+  <br>
+  
+  <%= link_to "delete", review_path %>
+<% end %>
