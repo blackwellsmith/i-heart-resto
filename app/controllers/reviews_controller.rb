@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
 
     def index
+      #determine if we're using a nested route  restaurants/1/reviews
+      #or just simply going to reviews index  /reviews 
       @reviews = Review.all 
     end
 
@@ -10,7 +12,7 @@ class ReviewsController < ApplicationController
 
     def create
       @review = Review.new(review_params)
-     # binding.pry 
+    # 
        if @review.save
         redirect_to review_path(@review)
        else 
@@ -23,6 +25,23 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
       #binding.pry
      # redirect_to review_path
+    end
+
+    def edit
+      @review = Review.find(params[:id])
+     
+    end
+
+    def update
+      @review = Review.find(params[:id])
+      @review.update(review_params)
+      redirect_to review_path(@review)
+    end
+
+    def destroy
+      @review = Review.find(params[:id])
+      @review.destroy
+      redirect_to reviews_path
     end
 
     private 

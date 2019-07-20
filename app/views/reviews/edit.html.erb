@@ -1,0 +1,9 @@
+<%= form_for @review do |f| %>
+  <%= f.label 'Title' %><br>
+  <%= f.text_field :title %><br>
+ 
+  <%= f.label 'Edited review' %><br>
+  <%= f.text_area :restaurant_review %><br>
+ 
+  <%= f.submit "Submit Changes" %>
+<% end %>

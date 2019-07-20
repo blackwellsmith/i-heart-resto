@@ -14,5 +14,7 @@ class RestaurantsController < ApplicationController
       end
   
       def show
+        @restaurant = Restaurant.find(params[:id])
+        @reviews = @restaurant.reviews #returns an array 
       end
     end

@@ -14,9 +14,9 @@
 <br>
 
 <% if @review.user.id == session[:user_id]%>
-  <%= link_to "edit", review_path %>
+  <%= link_to "Edit", edit_review_path(@review) %>
 
   <br>
   
-  <%= link_to "delete", review_path %>
+  <%= link_to 'Delete', @review, method: :delete, data: { confirm: 'For real? You can always rewrite your review at a later date.' } %>
 <% end %>

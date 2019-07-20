@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id 
         redirect_to  reviews_path
       else
-        redirect_to 'login' 
+        flash[:error] = "Sorry, your username and password don't match our records"
+        redirect_to '/login' 
       end
     end
 

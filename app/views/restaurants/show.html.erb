@@ -1,0 +1,6 @@
+RESTO SHOW PAGE
+
+<h3>Restaurant name: <%= @restaurant.name %></h3>
+<% @reviews.each do |r| %>
+  Title: <%= link_to r.title, review_path(r) %>
+<% end %>
