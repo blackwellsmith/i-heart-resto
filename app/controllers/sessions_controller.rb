@@ -16,6 +16,19 @@ class SessionsController < ApplicationController
       end
     end
 
+    
+  def fbcreate
+    @user = User.find_or_create_by(uid: auth['uid']) do |u|
+      u.username = auth['info']['name']
+      u.email = auth['info']['email']
+      u.password = auth['uid']   #secure random hex?
+    end
+
+    session[:user_id] = @user.id
+
+    redirect_to reviews_path
+  end
+
     def home
     end
 
@@ -23,5 +36,11 @@ class SessionsController < ApplicationController
     session.clear 
     redirect_to '/'
     end
+
+    private
+
+  def auth
+    request.env['omniauth.auth']
+  end
 
 end

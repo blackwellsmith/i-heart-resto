@@ -18,13 +18,13 @@
 <%= form_for(@review) do |r| %>
 
     <%= r.label :user_id, "Select User" %>
-    <%= r.collection_select :user_id, User.all, :id, :username %>
+    <%= r.collection_select :user_id, User.all, :id, :username, prompt: true %>
 
     <br>
     <br>
     
     <%= r.label :restaurant_id, "Select Restaurant" %>
-    <%= r.collection_select :restaurant_id, Restaurant.all, :id, :name %>
+    <%= r.collection_select :restaurant_id, Restaurant.all, :id, :name, {:include_blank => 'Please Select'} %>
 
     <br>
     <br>

@@ -2,5 +2,8 @@ RESTO SHOW PAGE
 
 <h3>Restaurant name: <%= @restaurant.name %></h3>
 <% @reviews.each do |r| %>
-  Title: <%= link_to r.title, review_path(r) %>
+  Title: <%= link_to r.title, restaurant_review_path(@restaurant,r) %>
+  <br>
 <% end %>
+
+<%= link_to "Write a review for this restaraunt!", new_restaurant_review_path(@restaurant)%>

@@ -7,8 +7,14 @@ class ReviewsController < ApplicationController
     end
 
     def new
-      @review = Review.new
+      if params[:restaurant_id] && restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        @review = restaurant.reviews.build
+      else
+        @review = Review.new
+      end
     end
+
+    
 
     def create
       @review = Review.new(review_params)
@@ -21,11 +27,20 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        #binding.pry
-      @review = Review.find(params[:id])
-      #binding.pry
-     # redirect_to review_path
+      if params[:review_id]
+        @review = Restaurant.find(params[:id])
+      else   
+        @review = Review.find(params[:id])
+      end
     end
+
+    #def index
+      #if params[:author_id]
+      #  @posts = Author.find(params[:author_id]).posts
+     # else
+     #   @posts = Post.all
+    #  end
+   # end
 
     def edit
       @review = Review.find(params[:id])
