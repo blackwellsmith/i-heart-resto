@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
     def index
       #determine if we're using a nested route  restaurants/1/reviews
       #or just simply going to reviews index  /reviews 
-      @reviews = Review.all 
+      @reviews = Review.ordered 
     end
 
     def new

@@ -1,13 +1,14 @@
 <div id="flexcontainer">
 <div class="flexbox">
 <%= form_for @review do |f| %>
-  <%= f.label 'Title' %><br>
+  <h2><%= f.label 'Edit Title' %><br></h2>
   <%= f.text_field :title %><br>
  
-  <%= f.label 'Edited review' %><br>
+  <h2><%= f.label 'Edit Review' %><br></h2>
   <%= f.text_area :restaurant_review %><br>
  
   <%= f.submit "Submit Changes" %>
 <% end %>
+<h2><%= link_to "Cancel Edit", reviews_path, style: 'color:white;' %></h2>
 </div>
 </div>

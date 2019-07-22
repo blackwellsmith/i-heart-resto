@@ -1,6 +1,8 @@
 <div id="flexcontainer">
 <div class="flexbox">
 <h1>You hungry?</h1>
+<h1>Your next great meal is waiting for you,</h1>
+    <h1>checkout the reviews below.</h1>
 
 <% @reviews.each do |r| %>
     <h2><%= r.restaurant.name %> | <%= r.title %> | <%= link_to "Read", review_path(r), style: 'color:white;'  %><br></h2>

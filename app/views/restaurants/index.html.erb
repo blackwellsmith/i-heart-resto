@@ -1,6 +1,6 @@
 <div id="flexcontainer">
 <div class="flexbox"> 
-<h1>Read reviews from one of these restaurants</h1>
+<h1>Read recent reviews from these restaurants</h1>
 <% @restaurants.each do |r| %>
   <h2><%= r.name %>   <%= link_to "See Reviews", restaurant_path(r), style: 'color:white;'  %></h2>
     

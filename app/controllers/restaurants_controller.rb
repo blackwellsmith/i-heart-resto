@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
   
       def show
         @restaurant = Restaurant.find(params[:id])
-        @reviews = @restaurant.reviews
+        @reviews = @restaurant.reviews.ordered
         #binding.pry #returns an array 
       end
     end
