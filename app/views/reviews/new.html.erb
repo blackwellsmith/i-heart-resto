@@ -16,14 +16,10 @@
 <h2>Please keep it short and sweet!</h2>
 
 <%= form_for(@review) do |r| %>
-
-    <%= r.label :user_id, "Select User" %>
-    <%= r.collection_select :user_id, User.all, :id, :username, prompt: true %>
-
-    <br>
+    
     <br>
     
-    <%= r.label :restaurant_id, "Select Restaurant" %>
+    <h3><%= r.label :restaurant_id, "Select Restaurant" %>
     <%= r.collection_select :restaurant_id, Restaurant.all, :id, :name, {:include_blank => 'Please Select'} %>
 
     <br>
@@ -41,11 +37,11 @@
     <br>
     <br>
 
-    <%= r.submit %>
+    <%= r.submit %></h3>
 <% end %>
 
 
  
  <br>
 
- <%= link_to "Return to Reviews Page", reviews_path %>
+ <h3><%= link_to "Return to Reviews Page", reviews_path %></h3>

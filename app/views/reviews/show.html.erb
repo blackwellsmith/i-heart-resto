@@ -1,22 +1,21 @@
 
 <h1>Title: <%= @review.title %></h1>
-<h3>Restaurant name: <%= @review.restaurant.name %></h3>
+
+<h1>Restaurant name: <%= @review.restaurant.name %></h1>
 
 <br>
 
-<p>Read 👉: <%= @review.restaurant_review %></p>
+<h2><p> 👉: <%= @review.restaurant_review %></p></h2>
 
 <br>
 
-<%= link_to "Return to Reviews Page", reviews_path %>
-
-<br>
-<br>
+<h3><%= link_to "Return to Reviews Page", reviews_path %></h3>
 
 <% if @review.user.id == session[:user_id]%>
-  <%= link_to "Edit", edit_review_path(@review) %>
+  <h3><%= link_to "Edit", edit_review_path(@review) %>
 
   <br>
+  <br>
   
-  <%= link_to 'Delete', @review, method: :delete, data: { confirm: 'For real? You can always rewrite your review at a later date.' } %>
+  <%= link_to 'Delete', @review, method: :delete, data: { confirm: 'For real? You can always rewrite your review at a later date.' } %></h3>
 <% end %>

@@ -1,11 +1,6 @@
-THIS IS THE REVIEWS INDEX PAGE 
+ 
 <h1>Read reviews from one of these restaurants</h1>
 <% @restaurants.each do |r| %>
-    <%= r.name %> <%= link_to "Read", restaurant_path(r)  %>
-    <br>
-<% end %>
-
-
-
-CLICK ON READ 
-GO TO RESTARAUNT SHOW PAGE 
+  <h2><%= r.name %>   <%= link_to "See Reviews", restaurant_path(r)  %></h2>
+    
+    <% end %>  

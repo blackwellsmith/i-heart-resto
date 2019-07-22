@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+    before_action :current_user, only: [ :edit, :destroy]
     def index
       #determine if we're using a nested route  restaurants/1/reviews
       #or just simply going to reviews index  /reviews 
@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
         @review = restaurant.reviews.build
       else
         @review = Review.new
+        
       end
     end
 
@@ -18,7 +19,7 @@ class ReviewsController < ApplicationController
 
     def create
       @review = Review.new(review_params)
-    # 
+      @review.user_id = session[:user_id]
        if @review.save
         redirect_to review_path(@review)
        else 
@@ -34,34 +35,30 @@ class ReviewsController < ApplicationController
       end
     end
 
-    #def index
-      #if params[:author_id]
-      #  @posts = Author.find(params[:author_id]).posts
-     # else
-     #   @posts = Post.all
-    #  end
-   # end
-
     def edit
-      @review = Review.find(params[:id])
-     
+      @review = Review.find(params[:id]) 
+      if @review.user_id != current_user.id
+        redirect_to reviews_path
+      end
     end
 
     def update
       @review = Review.find(params[:id])
+      
       @review.update(review_params)
       redirect_to review_path(@review)
     end
 
     def destroy
       @review = Review.find(params[:id])
+      #if @review.user_id == current_user.id
       @review.destroy
       redirect_to reviews_path
-    end
+      end
 
     private 
 
     def review_params
-      params.require(:review).permit(:id, :user_id, :restaurant_id, :title, :restaurant_review)  
+      params.require(:review).permit(:id, :restaurant_id, :title, :restaurant_review)  
     end
 end
