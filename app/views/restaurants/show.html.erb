@@ -1,12 +1,15 @@
-
+<div id="flexcontainer">
+<div class="flexbox">
 
 <h1>Restaurant name: <%= @restaurant.name %></h1>
 <% @reviews.each do |r| %>
-  <h2>Title: <%= link_to r.title, restaurant_review_path(@restaurant,r) %></h2>
+  <h2>Title: <%= link_to r.title, restaurant_review_path(@restaurant,r), style: 'color:white;' %></h2>
 
 <% end %>
 
 
 <br>
 
-<h3><%= link_to "Write a review for this restaraunt!", new_restaurant_review_path(@restaurant)%></h3>
+<h3><%= link_to "Write a review for this restaraunt!", new_restaurant_review_path(@restaurant), style: 'color:white;'%></h3>
+</div>
+</div>

@@ -1,4 +1,5 @@
-
+<div id="flexcontainer">
+<div class="flexbox">
 <h1>Title: <%= @review.title %></h1>
 
 <h1>Restaurant name: <%= @review.restaurant.name %></h1>
@@ -9,13 +10,15 @@
 
 <br>
 
-<h3><%= link_to "Return to Reviews Page", reviews_path %></h3>
+<h3><%= link_to "Return to Reviews Page", reviews_path, style: 'color:white;' %></h3>
 
 <% if @review.user.id == session[:user_id]%>
-  <h3><%= link_to "Edit", edit_review_path(@review) %>
+  <h3><%= link_to "Edit", edit_review_path(@review), style: 'color:white;' %>
 
   <br>
   <br>
   
-  <%= link_to 'Delete', @review, method: :delete, data: { confirm: 'For real? You can always rewrite your review at a later date.' } %></h3>
+  <%= link_to 'Delete', @review, method: :delete, data: { confirm: 'For real? You can always rewrite your review at a later date.' }, style: 'color:white;'%></h3>
 <% end %>
+</div>
+</div>
