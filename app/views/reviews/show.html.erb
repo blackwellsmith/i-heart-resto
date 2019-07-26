@@ -12,7 +12,7 @@
 
 <h3><%= link_to "Return to Reviews Page", reviews_path, style: 'color:white;' %></h3>
 
-<% if @review.user.id == session[:user_id]%>
+<% if current_user.id == @review.user_id %>
   <h3><%= link_to "Edit", edit_review_path(@review), style: 'color:white;' %>
 
   <br>

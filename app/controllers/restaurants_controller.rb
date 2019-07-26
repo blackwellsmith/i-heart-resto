@@ -10,12 +10,10 @@ class RestaurantsController < ApplicationController
   
       def create
         @restaurant = Restaurant.create(params)
-         # redirect_to review_path(@review)
       end
   
       def show
         @restaurant = Restaurant.find(params[:id])
-        @reviews = @restaurant.reviews.ordered
-        #binding.pry #returns an array 
+        @reviews = @restaurant.reviews.ordered 
       end
     end
