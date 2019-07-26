@@ -31,27 +31,25 @@ class ReviewsController < ApplicationController
       if params[:review_id]
         @review = Restaurant.find(params[:id])
       else   
-        @review = Review.find(params[:id])
+        find_review_by_id
       end
     end
 
     def edit
-      @review = Review.find(params[:id]) 
+      find_review_by_id 
       if @review.user_id != current_user.id
         redirect_to reviews_path
       end
     end
 
     def update
-      @review = Review.find(params[:id])
-      
+      find_review_by_id
       @review.update(review_params)
       redirect_to review_path(@review)
     end
 
     def destroy
-      @review = Review.find(params[:id])
-      #if @review.user_id == current_user.id
+      find_review_by_id
       @review.destroy
       redirect_to reviews_path
       end
@@ -61,4 +59,8 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:id, :restaurant_id, :title, :restaurant_review)  
     end
+
+    def find_review_by_id
+      @review = Review.find(params[:id])
+  end
 end

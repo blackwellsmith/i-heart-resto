@@ -8,7 +8,5 @@ class Review < ApplicationRecord
 
     scope :ordered, -> { order('created_at desc') }
     
-    def find_review_by_id
-        @review = Review.find(params[:id])
-    end
+    
 end
