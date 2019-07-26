@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :static
 
   resources :restaurants do
-    resources :reviews
+    resources :reviews, only: [ :new, :show ]
   end
 end
