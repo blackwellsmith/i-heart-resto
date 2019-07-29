@@ -13,39 +13,38 @@
   </div>
 <% end %>
 <div id="flexcontainer">
-<div class="flexbox">
-<h1>Tell us about your favorite resto!!</h1>
-<h2>Please keep it short and sweet!</h2>
+  <div class="flexbox">
+    <h1>Tell us about your favorite resto!!</h1>
+      <h2>Please keep it short and sweet!</h2>
 
-<%= form_for(@review) do |r| %>
+        <%= form_for(@review) do |r| %>
     
-    <br>
+          <br>
     
-    <h3><%= r.label :restaurant_id, "Select Restaurant" %>
-    <%= r.collection_select :restaurant_id, Restaurant.all, :id, :name, {:include_blank => 'Please Select'} %>
+          <h3><%= r.label :restaurant_id, "Select Restaurant" %>
+          <%= r.collection_select :restaurant_id, Restaurant.all, :id, :name, {:include_blank => 'Please Select'} %>
 
-    <br>
-    <br>
+          <br>
+          <br>
 
-    <%= r.label :title %><br>
-    <%= r.text_field :title %>
+          <%= r.label :title %><br>
+          <%= r.text_field :title %>
 
-    <br>
-    <br>
+          <br>
+          <br>
 
-    <%= r.label :restaurant_review %><br>
-    <%= r.text_area :restaurant_review %>
+          <%= r.label :restaurant_review %><br>
+          <%= r.text_area :restaurant_review %>
 
-    <br>
-    <br>
+          <br>
+          <br>
 
-    <%= r.submit %></h3>
-<% end %>
+          <%= r.submit %></h3>
 
+          <% end %>
 
- 
- <br>
+          <br>
 
- <h3><%= link_to "Return to Reviews Page", reviews_path, style: 'color:white;' %></h3>
- </div>
- </div>
+    <h3><%= link_to "Return to Reviews Page", reviews_path, style: 'color:white;' %></h3>
+  </div>
+</div>
