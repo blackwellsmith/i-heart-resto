@@ -13,6 +13,7 @@ class RestaurantsController < ApplicationController
       end
   
       def show
+        #binding.pry
         @restaurant = Restaurant.find(params[:id])
         @reviews = @restaurant.reviews.ordered 
       end

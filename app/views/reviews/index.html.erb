@@ -1,5 +1,11 @@
 <div id="flexcontainer">
 <div class="flexbox">
+
+<%= form_with(url: "/reviews", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
 <h1>You hungry?</h1>
 <h1>Your next great meal is waiting for you,</h1>
     <h1>checkout the reviews below.</h1>

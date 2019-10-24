@@ -3,7 +3,16 @@ class ReviewsController < ApplicationController
     def index
       #determine if we're using a nested route  restaurants/1/reviews
       #or just simply going to reviews index  /reviews 
-      @reviews = Review.ordered 
+      # need to see if params are are present
+      # need to see if params match
+      if !!params[:q]
+        @restaurant = Restaurant.find_by_name(params[:q])
+        
+        redirect_to restaurant_path(@restaurant)
+      else
+        @reviews = Review.ordered
+        
+      end
     end
 
     def new
