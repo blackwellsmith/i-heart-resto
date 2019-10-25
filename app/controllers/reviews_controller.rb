@@ -6,12 +6,13 @@ class ReviewsController < ApplicationController
       # need to see if params are are present
       # need to see if params match
       if !!params[:q]
-        @restaurant = Restaurant.find_by_name(params[:q])
-        
-        redirect_to restaurant_path(@restaurant)
+        @resto = params[:q]
+        @restaurant = Restaurant.match(@resto)
+        @reviews = Review.where("restaurant_id = '@restaurant.id'").ordered
+        #@restaurant = Restaurant.find_by_name(params[:q])
+        #redirect_to reviews_path(@reviews)
       else
         @reviews = Review.ordered
-        
       end
     end
 

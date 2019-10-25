@@ -7,6 +7,6 @@ class Review < ApplicationRecord
     validates :restaurant_review, length: { maximum: 250 }
 
     scope :ordered, -> { order('created_at desc') }
-    #scope :search, -> { where('restaurant_name = ?', restaurant_name ) }
+    
     
 end

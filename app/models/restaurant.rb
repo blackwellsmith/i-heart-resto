@@ -2,7 +2,7 @@ class Restaurant < ApplicationRecord
     has_many :reviews
     has_many :users, through: :reviews
 
-    #scope :match, -> { where('restaurant_name = ?', params[:q] ) }
+    scope :match, -> (name) { where("name = ?", name ) }
 end
 
 #@restaurant = taco trucks 
